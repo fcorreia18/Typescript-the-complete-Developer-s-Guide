@@ -41,4 +41,13 @@ console.log(coordenates)//x:10;y:20
 let variableToInitializeAfterHisDeclaration: number;
 variableToInitializeAfterHisDeclaration = 2;
 
-// 3) Variable whose type cannot be inferred correctly
+//3) Variable whose type cannot be inferred correctly
+let pcModels = ['Huawei', 'Lenovo', 'HP']
+let keepLenovo: boolean | string;
+for (let cont = 0; cont < pcModels.length; cont++) {
+    if (pcModels[cont] === "Lenovo") {
+        keepLenovo = pcModels[cont]
+    } else {
+        keepLenovo = false;
+    }
+};
