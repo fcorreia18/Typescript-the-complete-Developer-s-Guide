@@ -19,4 +19,15 @@ const curryMultiply = (a: number) => (b: number): number => {
 };
 
 const multiplyByFive = curryMultiply(2);
-multiplyByFive(5) 
+multiplyByFive(5)
+
+const todayWeather = {
+    date: new Date,
+    weather: 'sunny'
+}
+const logWeather = ({ date, weather }: { date: Date, weather: string }): void => {
+    console.log(date)
+    console.log(weather)
+}
+
+logWeather(todayWeather)
