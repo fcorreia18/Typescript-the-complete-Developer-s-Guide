@@ -9,6 +9,9 @@ let nothing: undefined = undefined;
 let now: Date = new Date;
 
 //Array
+let colors: string[] = ['red', 'green', 'blue']
+let numbers: number[] = [-2, 0, 2]
+let truths: boolean[] = [true, false, true]
 
 
 //Classes
