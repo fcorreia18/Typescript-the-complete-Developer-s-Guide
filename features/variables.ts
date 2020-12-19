@@ -15,7 +15,10 @@ let truths: boolean[] = [true, false, true]
 
 
 //Classes
+class Car {
 
+}
+let car: Car = new Car;
 // Object literal
 
 //Function
