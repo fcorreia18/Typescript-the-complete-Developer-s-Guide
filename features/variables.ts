@@ -36,7 +36,9 @@ const logNumber: (i: number) => void = (i: number) => {
 const json = '{"x":10,"y":20}';
 let coordenates: { x: number; y: number } = JSON.parse(json);
 console.log(coordenates)//x:10;y:20
-//2) When we declare a variable on one line and initializate it later
 
+//2) When we declare a variable on one line and initializate it later
+let variableToInitializeAfterHisDeclaration: number;
+variableToInitializeAfterHisDeclaration = 2;
 
 // 3) Variable whose type cannot be inferred correctly
