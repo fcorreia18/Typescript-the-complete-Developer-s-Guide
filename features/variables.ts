@@ -26,7 +26,9 @@ let points: { x: number; y: number } = {
 }
 
 //Function
-
+const logNumber: (i: number) => void = (i: number) => {
+    return console.log(i);
+}
 
 //When to use annotations
 // 1) Function that returns the 'any' type
