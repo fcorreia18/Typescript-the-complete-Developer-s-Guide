@@ -34,7 +34,8 @@ const logNumber: (i: number) => void = (i: number) => {
 // 1) Function that returns the 'any' type
 
 const json = '{"x":10,"y":20}';
-
+let coordenates: { x: number; y: number } = JSON.parse(json);
+console.log(coordenates)//x:10;y:20
 //2) When we declare a variable on one line and initializate it later
 
 
