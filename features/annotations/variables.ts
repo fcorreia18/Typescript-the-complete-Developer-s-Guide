@@ -10,7 +10,7 @@ let now: Date = new Date;
 
 //Array
 let colors: string[] = ['red', 'green', 'blue']
-let numbers: number[] = [-2, 0, 2]
+let numbers: (number | string)[] = [-2, 0, 2, 'ola']
 let truths: boolean[] = [true, false, true]
 
 
