@@ -3,14 +3,18 @@ import faker from 'faker';
 export class User {
     name: string;
     location: {
-        x: number,
-        y: number
+        lat: number,
+        lng: number
     }
+
     constructor() {
         this.name = faker.name.firstName();
         this.location = {
-            x: parseFloat(faker.address.latitude()),
-            y: parseFloat(faker.address.longitude()),
+            lat: parseFloat(faker.address.latitude()),
+            lng: parseFloat(faker.address.longitude()),
         }
+    }
+    markerContent(): string {
+        return `This is the info about the user: </br> first name: ${this.name}`;
     }
 }
