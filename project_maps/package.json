@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/faker": "^5.1.5",
+    "@types/googlemaps": "^3.40.5",
     "faker": "^5.1.0"
   },
   "devDependencies": {
