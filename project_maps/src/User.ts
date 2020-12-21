@@ -6,7 +6,6 @@ export class User {
         lat: number,
         lng: number
     }
-
     constructor() {
         this.name = faker.name.firstName();
         this.location = {

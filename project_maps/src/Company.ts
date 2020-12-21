@@ -1,8 +1,10 @@
 import faker from 'faker';
+import { Mappable } from "./CustomMap";
 
 export class Company {
     companyName: string;
     catchPhrase: string;
+    color: string = 'blue';
     location: {
         lat: number,
         lng: number
