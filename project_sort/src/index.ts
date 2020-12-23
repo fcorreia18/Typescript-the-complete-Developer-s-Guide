@@ -1,12 +1,15 @@
 class Sort {
-    constructor(public colletion: number[]) { }
+    constructor(public collection: number[]) { }
     public sort(): void {
-        const { length } = this.colletion;
+        const { length } = this.collection;
         for (let i = 0; i < length; i++) {
             for (let j = 0; j < length - i - 1; j++) {
-                const leftHand = this.colletion[j];
-                this.colletion[j] = this.colletion[j + 1];
-                this.colletion[j + 1] = leftHand;
+                if (this.collection[j] > this.collection[j + 1]) {
+                    const leftHand = this.collection[j];
+                    this.collection[j] = this.collection[j + 1];
+                    this.collection[j + 1] = leftHand;
+
+                }
 
             }
 
@@ -16,4 +19,4 @@ class Sort {
 
 const sort = new Sort([12, 93, -3, 1]);
 sort.sort();
-console.log(sort.colletion);//Para mostrar o array organizado de forma ascendente
+console.log(sort.collection);//Para mostrar o array organizado de forma ascendente
