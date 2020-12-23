@@ -1,5 +1,10 @@
-console.log('Hi there');
+class Sort {
+    constructor(public colletion: number[]) { }
+    public sort(): void {
 
-const newConsoleLog = (): string => {
-    return 'New Hi there';
+    }
 }
+
+const sort = new Sort([12, 93, -3, 1]);
+sort.sort();
+console.log(sort.colletion);//Para mostrar o array organizado de forma ascendente
