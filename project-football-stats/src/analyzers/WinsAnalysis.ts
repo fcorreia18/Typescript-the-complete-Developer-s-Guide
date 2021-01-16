@@ -9,9 +9,9 @@ export class WinsAnalysis implements Analizer {
         let wins = 0;
 
         for (let team of matches) {
-            if (team[1] === "Man United" && team[5] === MatchResult.HomeWins) {
+            if (team[1] === this.teamName && team[5] === MatchResult.HomeWins) {
                 wins++;
-            } else if (team[2] === "Man United" && team[5] === MatchResult.AwayWins) {
+            } else if (team[2] === this.teamName && team[5] === MatchResult.AwayWins) {
                 wins++;
             }
         }
