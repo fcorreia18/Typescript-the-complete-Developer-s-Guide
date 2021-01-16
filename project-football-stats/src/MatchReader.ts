@@ -1,8 +1,9 @@
 import { CsvFileReader } from "./CsvFileReader";
 import { MatchResult } from "./MatchResult";
 import { dateStringToDate } from './utils';
+type MatchData = [Date, string, string, number, number, MatchResult, MatchResult, string];
 
-export class MatchReader extends CsvFileReader {
+export class MatchReader extends CsvFileReader<MatchData> {
     public mapRow(row: string[]): MatchData {
         return [
             dateStringToDate(row[0]),
