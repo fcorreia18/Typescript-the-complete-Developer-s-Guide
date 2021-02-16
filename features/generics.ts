@@ -1,3 +1,4 @@
+//GENERIC AROUND CLASSES
 class ArrayOfNumbers {
     constructor(public collection: number[]) { }
 
@@ -37,6 +38,7 @@ console.log(qc.get(1));
 
 
 
+//GENERIC AROUND FUNCTIONS
 
 function printString(arr: string[]): void {
     for (let i = 0; i < arr.length; i++) {
@@ -71,7 +73,32 @@ printAnything<string>(['34, 89, 12', 's']);
 printAnything2<number>([2, 98]);
 
 
+//GENERIC CONSTRAINTS
 
+class Cars {
+    public print() {
+        console.log("i am a car");
+    }
+}
+
+class House {
+    public print() {
+        console.log("i am a house");
+    }
+}
+
+interface Printable {
+    print(): void;
+}
+
+const printHouseOrCar = <T extends Printable>(arr: T[]) => {
+    for (let i = 0; i < arr.length; i++) {
+        arr[i].print();
+    }
+}
+
+printHouseOrCar<House>([new House, new House]);
+printHouseOrCar<Cars>([new Cars, new Cars]);
 
 
 
