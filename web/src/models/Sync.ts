@@ -6,20 +6,20 @@ interface HasId {
 }
 
 export class Sync<T extends HasId> {
-
+    constructor(public rootUrl: string) { }
     public fetch(id: number): AxiosPromise {
-        return axios.get(`http://localhost:3000/users/${id}`);
+        return axios.get(`/${id}`);
     }
 
     public fetchAll(): AxiosPromise {
-        return axios.get('http://localhost:3000/users');
+        return axios.get(this.rootUrl);
     }
 
     public save(data: T): AxiosPromise {
         const { id } = data;
         if (id) {
-            return axios.put(`http://localhost:3000/users/${id}`, data);
+            return axios.put(`${this.rootUrl}/${id}`, data);
         }
-        return axios.post('http://localhost:3000/users/', data);
+        return axios.post(this.rootUrl, data);
     }
 }
