@@ -6,7 +6,9 @@ interface HasId {
 }
 
 export class Sync<T extends HasId> {
+     allUsers: UserProps[] = []
     constructor(public rootUrl: string) { }
+
     public fetch(id: number): AxiosPromise {
         return axios.get(`/${id}`);
     }
