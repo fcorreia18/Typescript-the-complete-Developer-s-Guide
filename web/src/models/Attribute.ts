@@ -1,8 +1,9 @@
-extract class Attribute<T> {
-     constructor(private data: T) { }
+import { UserProps } from "./User";
+export class Attribute<T> {
+    constructor(private data: T) { }
 
-    public get(atribute: string): string | number {
-        return this.data[atribute];
+    public get<K extends keyof T>(key: K): T[K] {
+        return this.data[key];
     }
 
     public set(update: T): void {
