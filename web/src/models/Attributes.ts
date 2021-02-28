@@ -1,5 +1,4 @@
-import { UserProps } from "./User";
-export class Attribute<T> {
+export class Attributes<T> {
     constructor(private data: T) { }
 
     public get<K extends keyof T>(key: K): T[K] {

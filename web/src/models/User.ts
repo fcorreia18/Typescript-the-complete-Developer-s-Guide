@@ -1,5 +1,5 @@
 import { Eventing } from './Eventing';
-import { Attribute } from "./Attribute";
+import { Attributes } from "./Attributes";
 import { Sync } from "./Sync";
 export interface UserProps {
     id?: number;
@@ -12,7 +12,9 @@ export class User {
 
     public events: Eventing = new Eventing();
     public sync: Sync<UserProps> = new Sync<UserProps>(rootUrl);
-    public attribute:Attribute = new Attribute;
+    public attributes: Attributes<UserProps>;
 
-   
+    constructor(attr: UserProps) {
+        this.attributes = new Attributes<UserProps>(attr);
+    };
 }
