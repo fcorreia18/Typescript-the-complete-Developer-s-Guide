@@ -17,4 +17,14 @@ export class User {
     constructor(attr: UserProps) {
         this.attributes = new Attributes<UserProps>(attr);
     };
+
+    get on() {
+        return this.events.on;
+    }
+    get trigger() {
+        return this.events.trigger;
+    }
+    get get() {
+        return this.attributes.get;
+    }
 }
