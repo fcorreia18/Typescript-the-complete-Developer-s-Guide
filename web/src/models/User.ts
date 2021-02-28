@@ -27,4 +27,8 @@ export class User {
     get get() {
         return this.attributes.get;
     }
+    set(update: UserProps): void {
+        this.events.trigger('change');
+        return this.attributes.set(update);
+    }
 }
