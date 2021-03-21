@@ -5,7 +5,7 @@ interface HasId {
     id?: number;
 }
 
-export class Sync<T extends HasId> {
+export class ApiSync<T extends HasId> {
     allUsers: UserProps[] = []
     constructor(public rootUrl: string) { }
 

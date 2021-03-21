@@ -2,8 +2,11 @@
   "users": [
     {
       "id": 1,
-      "name": "Francisco Correia",
-      "age": 22
+      "name": "Francisco Correia ",
+      "age": 20
+    },
+    {
+      "id": 2
     }
   ]
 }
