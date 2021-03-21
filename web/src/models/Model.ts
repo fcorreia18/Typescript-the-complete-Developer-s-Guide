@@ -25,17 +25,21 @@ export class Model<T extends hasId> {
         private events: Events,
         private sync: Sync<T>
     ) { }
-    get on() {
-        return this.events.on;
-    }
-    get trigger() {
-        return this.events.trigger;
-    }
-    get get() {
-        return this.attributes.get;
-    }
 
-    //A short way to passthroug methods, note: te constructor function, must not have a implementation or code inside her body, otherwise this wont work
+    // get on() {
+    //     return this.events.on;
+    // }
+    // get trigger() {
+    //     return this.events.trigger;
+    // }
+    // get get() {
+    //     return this.attributes.get;
+    // }
+    //A short way to passthroug methods, note: te constructor function, must not have a implementation or code inside her body, otherwise this wont work. And it will not work when we have inline instantiation eg: const events = new Envent; the line under this will run first. Javascript will put on =  this.events.on before events = new Event.
+    on = this.events.on;
+    trigger = this.events.trigger;
+    get = this.attributes.get;
+
     set(update: T): void {
         this.events.trigger('change');
         return this.attributes.set(update);
