@@ -8,8 +8,8 @@ export class UserFrom {
             "click:.set_age": this.setRandomAge
         }
     }
-    public setRandomAge(): void {
-        return console.log('button was clicked');
+    public setRandomAge = (): void => {
+        this.model.setRandomAge();
     }
     public template(): string {
         return `
