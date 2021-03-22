@@ -41,8 +41,8 @@ export class Model<T extends hasId> {
     get = this.attributes.get;
 
     set(update: T): void {
+        this.attributes.set(update);
         this.events.trigger('change');
-        return this.attributes.set(update);
     }
 
     public fetch(): void {

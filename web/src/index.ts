@@ -8,5 +8,4 @@ if (root) {
     form.render()
 } else {
     throw new Error("Root Element not found");
-
 }
