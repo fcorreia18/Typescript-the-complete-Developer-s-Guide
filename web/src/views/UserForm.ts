@@ -11,12 +11,19 @@ export class UserFrom {
 
     public eventsMap(): { [key: string]: () => void } {
         return {
-            "click:.set_age": this.setRandomAge
+            "click:.set_age": this.onSetAgeClick,
+            "click:.set_name": this.onSetNameClick
         }
     }
-    public setRandomAge = (): void => {
+    public onSetNameClick = (): void => {
+        const input = this.parent.querySelector('input');
+        const name = input.value;
+        this.model.set({ name });
+    }
+    public onSetAgeClick = (): void => {
         this.model.setRandomAge();
     }
+
     public template(): string {
         return `
         <div>
@@ -24,6 +31,7 @@ export class UserFrom {
         <div>User Name:${this.model.get('name')}</div>
         <div>User Age: ${this.model.get('age')}</div>
         <input/> 
+        <button class="set_name">Set Name</button>
         <button class="set_age">Set Random Age</button>
         </div>
         `;
