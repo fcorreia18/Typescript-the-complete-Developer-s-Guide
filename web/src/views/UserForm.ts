@@ -1,7 +1,13 @@
 import { User } from "../models/User";
 
 export class UserFrom {
-    constructor(public parent: Element, public model: User) { }
+    constructor(public parent: Element, public model: User) { this.bindModel(); }
+
+    public bindModel(): void {
+        this.model.on('change', () => {
+            this.render();
+        })
+    }
 
     public eventsMap(): { [key: string]: () => void } {
         return {
@@ -41,6 +47,10 @@ export class UserFrom {
     }
 
     public render(): void {
+
+        //this line of code cleans up the parent html and re-render the page in case we update some data
+        this.parent.innerHTML = '';
+
         //the under line is creating a element in the document, this element is of the type HTMLTemplateElement
         const templateElement = document.createElement('template');
 
