@@ -1,5 +1,6 @@
+import { User, UserProps } from "../models/User";
 import { View } from "./View";
-export class UserFrom extends View {
+export class UserFrom extends View<User, UserProps> {
 
     public eventsMap(): { [key: string]: () => void } {
         return {

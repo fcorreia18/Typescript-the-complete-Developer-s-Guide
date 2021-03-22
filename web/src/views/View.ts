@@ -1,7 +1,9 @@
-import { User } from "../models/User";
-
-export abstract class View {
-    constructor(public parent: Element, public model: User) { this.bindModel(); }
+import { Model } from "../models/Model";
+interface hasId {
+    id?: number;
+}
+export abstract class View<T extends Model<K>, K> {
+    constructor(public parent: Element, public model: T) { this.bindModel(); }
 
     public bindModel(): void {
         this.model.on('change', () => {
