@@ -17,8 +17,10 @@ export class UserFrom {
     }
     public onSetNameClick = (): void => {
         const input = this.parent.querySelector('input');
-        const name = input.value;
-        this.model.set({ name });
+        if (input) {
+            const name = input.value;
+            this.model.set({ name });
+        }
     }
     public onSetAgeClick = (): void => {
         this.model.setRandomAge();
