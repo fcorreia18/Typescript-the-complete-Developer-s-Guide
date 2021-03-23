@@ -3,6 +3,9 @@ interface hasId {
     id?: number;
 }
 export abstract class View<T extends Model<K>, K> {
+
+    regions: { [key: string]: Element } = {};
+
     constructor(public parent: Element, public model: T) { this.bindModel(); }
 
     public bindModel(): void {
@@ -12,6 +15,9 @@ export abstract class View<T extends Model<K>, K> {
     }
 
     public abstract template(): string;
+    public regionsMap(): { [key: string]: string } {
+        return {};
+    }
     public eventsMap(): { [key: string]: () => void } {
         return {};
     }
@@ -33,6 +39,18 @@ export abstract class View<T extends Model<K>, K> {
         }
     }
 
+    public mapRegions(fragment: DocumentFragment): void {
+        const regionsMap = this.regionsMap();
+
+        for (let key in regionsMap) {
+            const selector = regionsMap[key];
+            const element = fragment.querySelector(selector);
+
+            if (element) {
+                this.regions[key] = element;
+            }
+        }
+    }
     public render(): void {
 
         //this line of code cleans up the parent html and re-render the page in case we update some data
@@ -46,6 +64,7 @@ export abstract class View<T extends Model<K>, K> {
 
         //the bindEvent function gets a htmlfragment search for a selector and bind or associate a event handler on it.(more detailed explanation in the bindEvents above)
         this.bindEvents(templateElement.content)
+        this.mapRegions(templateElement.content);
 
         //the parent attribute is of the type Element, that means we can append some html fragments to the DOM from im. In our case we're adding the content of our html fragment that is the templateElement.content.
         this.parent.append(templateElement.content);
