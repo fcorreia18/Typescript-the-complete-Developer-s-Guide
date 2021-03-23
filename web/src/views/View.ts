@@ -15,12 +15,14 @@ export abstract class View<T extends Model<K>, K> {
     }
 
     public abstract template(): string;
+
     public regionsMap(): { [key: string]: string } {
         return {};
     }
     public eventsMap(): { [key: string]: () => void } {
         return {};
     }
+    public onRender(): void { }
 
     public bindEvents(fragment: DocumentFragment): void {
         const eventsMap = this.eventsMap();
@@ -65,6 +67,9 @@ export abstract class View<T extends Model<K>, K> {
         //the bindEvent function gets a htmlfragment search for a selector and bind or associate a event handler on it.(more detailed explanation in the bindEvents above)
         this.bindEvents(templateElement.content)
         this.mapRegions(templateElement.content);
+
+        //Before we append the content that we create to the parent element, we're gonna  call a helper function(the onRender), to nest some view togethers.~
+        this.onRender();
 
         //the parent attribute is of the type Element, that means we can append some html fragments to the DOM from im. In our case we're adding the content of our html fragment that is the templateElement.content.
         this.parent.append(templateElement.content);
