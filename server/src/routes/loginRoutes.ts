@@ -1,5 +1,7 @@
 import express, { Router, Request, Response } from 'express'
-
+interface RequestCorrectBody extends Request {
+    body: { [key: string]: string | undefined }
+}
 const router = Router();
 
 router.get('/', (req: Request, res: Response): void => { res.send('hi there') })
@@ -20,7 +22,13 @@ router.get('/login', (req: Request, res: Response): void => {
 `);
 })
 
-router.post('/login', (req: Request, res: Response) => {
-    res.json(req.body);
+router.post('/login', (req: RequestCorrectBody, res: Response) => {
+    const { email, password } = req.body;
+    if (email) {
+        res.send(email)
+    } else {
+        throw new Error("Email and Password may be invalid");
+
+    }
 })
 export { router };
