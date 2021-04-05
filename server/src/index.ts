@@ -6,7 +6,7 @@ import { router } from './routes/loginRoutes';
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(cookieSession());
+app.use(cookieSession({ keys: ["saljdglo"] }));
 app.use(router);
 
 app.listen(3000, () => {

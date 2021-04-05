@@ -1,10 +1,36 @@
 import express, { Router, Request, Response } from 'express'
-interface RequestCorrectBody extends Request {
+interface RequestWithCorrectBody extends Request {
     body: { [key: string]: string | undefined }
 }
 const router = Router();
 
-router.get('/', (req: Request, res: Response): void => { res.send('hi there') })
+router.get('/', (req: Request, res: Response): void => {
+    if (req.session && req.session.loggedIn) {
+        res.send(`
+        You´re Logged In 
+        <br/>
+                <div>
+                <button type="submit" src="/logout">Logout</button>
+                </div>
+                `);
+    } else {
+        res.send(`
+        You´re not Logged In 
+        <br/>
+        <div>
+        <button src="/login">Login</button>
+        </div>
+        `);
+    }
+})
+router.post('/logout', (req: RequestWithCorrectBody, res: Response) => {
+    if (req.session && req.session.loggedIn === true) {
+        req.session.loggedIn = false;
+        res.redirect("/");
+    } else {
+
+    }
+})
 router.get('/login', (req: Request, res: Response): void => {
     res.send(`
      
@@ -22,12 +48,13 @@ router.get('/login', (req: Request, res: Response): void => {
 `);
 })
 
-router.post('/login', (req: RequestCorrectBody, res: Response) => {
+router.post('/login', (req: RequestWithCorrectBody, res: Response) => {
     const { email, password } = req.body;
-    if (email) {
-        res.send(email)
+    if (email && password && email === "francisco@gmail.com" && password === "1234") {
+        req.session = { loggedIn: true };
+        res.redirect('/', 200);
     } else {
-        throw new Error("Email and Password may be invalid");
+        res.send("Email and Password may be invalid");
 
     }
 })
