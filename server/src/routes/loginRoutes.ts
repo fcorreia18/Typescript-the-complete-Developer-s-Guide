@@ -10,7 +10,7 @@ router.get('/', (req: Request, res: Response): void => {
         You´re Logged In 
         <br/>
                 <div>
-                <button type="submit" src="/logout">Logout</button>
+                <a  href="/logout">Logout</a>
                 </div>
                 `);
     } else {
@@ -18,7 +18,7 @@ router.get('/', (req: Request, res: Response): void => {
         You´re not Logged In 
         <br/>
         <div>
-        <button src="/login">Login</button>
+        <a href="/login">Login</a>
         </div>
         `);
     }
