@@ -41,24 +41,7 @@ router.get('/', (req: Request, res: Response): void => {
 
 })
 
-router.get('/login', (req: Request, res: Response): void => {
 
-    res.send(`
-     
-    <form method="Post">
-        <div>
-            <label>Email:</label>
-            <input name="email" value="francisco@gmail.com"/>
-        </div> 
-        <div>
-            <label>Password:</label>
-            <input type="password" name="password" value="1234"/>
-        </div> 
-        <button type="submit">Submit</button>
-    </form>
-
-`);
-})
 
 router.post('/login', (req: RequestWithCorrectBody, res: Response) => {
     const { email, password } = req.body;
