@@ -16,6 +16,7 @@ const requireAuth: Middleware = (req: Request, res: Response, next: NextFunction
 
 const router = Router();
 
+
 router.get('/', (req: Request, res: Response): void => {
 
     if (req.session) {
