@@ -5,8 +5,9 @@ import { get, controller, bodyValidator, post } from "./decorators";
 
 @controller('/auth')
 export class LoginController {
+
     @get('/login')
-    getLogin(req: Request, res: Response): void {
+    public getLogin(req: Request, res: Response): void {
         res.send(`
             <form method="Post">
                 <div>
@@ -26,7 +27,7 @@ export class LoginController {
 
     @post('/login')
     @bodyValidator('email', 'password')
-    postLogin(req: Request, res: Response) {
+    public postLogin(req: Request, res: Response) {
         const { email, password } = req.body;
         if (email === "francisco@gmail.com" && password === "1234") {
             req.session = { loggedIn: true };
@@ -38,7 +39,7 @@ export class LoginController {
     }
 
     @get('/logout')
-    getLogout(req: Request, res: Response) {
+    public getLogout(req: Request, res: Response) {
         if (req.session && req.session.loggedIn) {
             req.session.loggedIn = false;//Or how is usually done should be: req.session = undefined;
             res.redirect("/");

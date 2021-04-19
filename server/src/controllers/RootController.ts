@@ -20,7 +20,7 @@ const requireAuth: Middleware = (req: Request, res: Response, next: NextFunction
 @controller('')
 export class RootController {
     @get('/')
-    getRoot(req: Request, res: Response): void {
+    public getRoot(req: Request, res: Response): void {
 
         if (req.session) {
             if (req.session.loggedIn) {
@@ -47,11 +47,9 @@ export class RootController {
 
 
 
-
-
     @get('/protected')
     @use(requireAuth)
-    getProtected(req: Request, res: Response) {
+    public getProtected(req: Request, res: Response) {
         res.status(200).send("Welcome you´re logged in")
     }
 }
