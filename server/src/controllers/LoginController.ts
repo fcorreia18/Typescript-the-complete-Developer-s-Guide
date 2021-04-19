@@ -1,16 +1,11 @@
 import { NextFunction, Request, Response } from "express";
-import { get, controller, use } from "./decorators";
+import { get, controller, bodyValidator, post } from "./decorators";
 
-function testing(req: Request, res: Response, next: NextFunction) {
-    console.log('testei')
-    next();
-    return;
-}
+
 
 @controller('/auth')
 export class LoginController {
     @get('/login')
-    @use(testing)
     getLogin(req: Request, res: Response): void {
         res.send(`
             <form method="Post">
@@ -26,5 +21,29 @@ export class LoginController {
             </form>
         
         `);
+    }
+
+
+    @post('/login')
+    @bodyValidator('email', 'password')
+    postLogin(req: Request, res: Response) {
+        const { email, password } = req.body;
+        if (email === "francisco@gmail.com" && password === "1234") {
+            req.session = { loggedIn: true };
+            res.redirect('/');
+        } else {
+            res.send("Email and Password may be invalid");
+
+        }
+    }
+
+    @get('/logout')
+    getLogout(req: Request, res: Response) {
+        if (req.session && req.session.loggedIn) {
+            req.session.loggedIn = false;//Or how is usually done should be: req.session = undefined;
+            res.redirect("/");
+        } else {
+
+        }
     }
 }

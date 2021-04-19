@@ -11,9 +11,11 @@ function bodyValidatorMiddleware(keys: string): RequestHandler {
             return;
         }
 
-        if (!req.body.filter((key: string) => key.includes(keys))) {
-            res.status(422).send("Invalid Request");
-            return;
+        for (const key of keys) {
+            if (!req.body[key]) {
+                res.status(422).send(`Invalid Request, missing property ${key}`);
+                return;
+            }
         }
         next();
     }
@@ -28,9 +30,10 @@ export function controller(routePrefixer: string) {
             const path = Reflect.getMetadata(MetadataKeys.path, target.prototype, key);
             const method: Methods = Reflect.getMetadata(MetadataKeys.method, target.prototype, key);
             const middlewares = Reflect.getMetadata(MetadataKeys.middleware, target.prototype, key) || [];
-            const validators = Reflect.getMetadata(MetadataKeys.validator, target.prototype, key);
+            const requestBody = Reflect.getMetadata(MetadataKeys.validator, target.prototype, key) || [];
+            const validators = bodyValidatorMiddleware(requestBody);
             if (path) {
-                router[method](`${routePrefixer}${path}`, ...middlewares, routeHandler);
+                router[method](`${routePrefixer}${path}`, ...middlewares, validators, routeHandler);
             }
         }
     }
