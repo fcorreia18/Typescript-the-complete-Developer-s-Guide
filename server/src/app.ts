@@ -11,7 +11,7 @@ app.use(urlencoded({ extended: true }));
 app.use(cookieSession({ keys: ["saljdglo"] }));
 app.use(AppRouter.getInstance());
 
-
-app.listen(3000, () => {
-    console.log("app is running on port 3000")
+const port = 80
+app.listen(3000 || port, () => {
+    console.log("running on port 3002")
 });
