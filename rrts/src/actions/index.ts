@@ -16,7 +16,7 @@ const url = 'https://jsonplaceholder.typecode.com/todos'
 export const fetchTodos = () => {
     return async (dispatch: Dispatch) => {
         const response = await axios.get<Todo[]>(url);
-        dispatch<Action>({
+        dispatch<fetchTodosAction>({
             type: ActionTypes.fetchTodos,
             payload: response.data
         })
