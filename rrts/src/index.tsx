@@ -5,8 +5,22 @@ interface AppProps {
     color?: string
 }
 class App extends React.Component<AppProps> {
+    state = { counter: 0 }
+    public onIncrement = (): void => {
+        this.setState({ counter: this.state.counter + 1 });
+    }
+    public onDecrement = (): void => {
+        this.setState({ counter: this.state.counter - 1 });
+    }
     render() {
-        return <div>{this.props.color}</div>
+        return (
+            <div>
+                <button onClick={this.onIncrement}>Increment</button>
+                <button onClick={this.onDecrement}>Decrement</button>
+                <div>{this.state.counter}</div>
+            </div>
+
+        )
     }
 }
 
