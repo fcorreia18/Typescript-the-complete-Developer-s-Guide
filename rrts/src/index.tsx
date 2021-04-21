@@ -4,8 +4,10 @@ import ReactDOM from 'react-dom';
 interface AppProps {
     color?: string
 }
+
 class App extends React.Component<AppProps> {
-    state = { counter: 0 }
+    state: { counter: number } = { counter: 0 }
+
     public onIncrement = (): void => {
         this.setState({ counter: this.state.counter + 1 });
     }
