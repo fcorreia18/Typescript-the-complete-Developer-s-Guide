@@ -1,5 +1,5 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux'
 
-export const reducer = combineReducers({
-    newReducer: () => "Olá",
+export const reducers = combineReducers({
+    sayHello: () => 2,
 })
