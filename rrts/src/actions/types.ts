@@ -2,7 +2,7 @@ import { FetchTodosAction, DeleteTodosAction } from "./todos";
 
 export enum ActionType {
     fetchTodos,
-    deleteTodos
+    deleteTodo
 }
 
 export type Action = FetchTodosAction | DeleteTodosAction;
