@@ -12,6 +12,8 @@ export interface AppState {
     fetching: boolean
 }
 class _App extends Component<AppProps, AppState> {
+
+    // state = {fetching: false} shorter way
     constructor(props: AppProps) {
         super(props);
         this.state = { fetching: false }
