@@ -5,10 +5,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>Finance Logger</title>
 </head>
 
 <body>
+
+    <div>
+        <h1 class="p-name">Finance Logger</h1>
+    </div>
+    <footer>
+        <form class="new-item-form">
+            <div class="field">
+                <label>Type:</label>
+                <section id="type">
+                    <option value="invoice">Invoice</option>
+                    <option value="payment">Payment</option>
+                </section>
+            </div>
+            <div class="field">
+                <label>To / From:</label>
+                <input type="text">
+            </div>
+            <div class="field">
+                <label>Details:</label>
+                <input type="text">
+            </div>
+            <div class="field">
+                <label>Amount (kz):</label>
+                <input type="text">
+            </div>
+            <button>Add</button>
+            <a href="www.francisco-correia.com"> Francisco Correia </a>
+        </form>
+    </footer>
+
     <script src="./app.js"></script>
 </body>
 
