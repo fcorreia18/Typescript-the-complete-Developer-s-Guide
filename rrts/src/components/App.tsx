@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Todo, fetchTodos } from '../actions'
+import { Todo, fetchTodos, deleteTodo } from '../actions'
 import { StoreState } from '../reducers'
 export interface AppProps {
     todos: Todo[],
-    fetchTodos(): Function
+    fetchTodos(): Function,
+    deleteTodo(): typeof deleteTodo
 }
 class _App extends Component<AppProps> {
     onButtonClick = (): void => {
