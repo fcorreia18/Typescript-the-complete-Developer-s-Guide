@@ -3,14 +3,49 @@
     margin:0
 }
 :root{
-    --primary:black;
-    --secondary:blue;
+    --primary:rgb(22, 15, 87);
+    --secondary:rgba(11, 50, 95, 0.829);
+    --font: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 body{
     text-align: center;
+    font-family: var(--font);
 }
 
 div .p-name{
-    color: var(--secondary);
+    /* font-family: Georgia, 'Times New Roman', Times, serif; */
+    color: var(--primary);
+}
+
+footer{
+    background-color: rgba(149, 151, 182, 0.363);
+    padding: 100px;
+    margin: 50px;
+}
+
+.new-item-form{
+    display: flex;
+    margin: 2px;
+}
+.field{
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-content: center
+    ;
+}
+footer form >button{
+    background-color: var(--secondary);
+color:white;
+width: 100px;
+border-radius: 5px;
+margin-left: 5px;
+cursor: pointer;
+}
+.credits{
+margin-top: 100px;
+}
+footer > div > a{
+color: rgb(102, 102, 102);
+text-align: center;
 }
