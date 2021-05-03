@@ -7,10 +7,21 @@ export interface AppProps {
     fetchTodos(): any
 }
 class _App extends Component<AppProps> {
+    onButtonClick = (): void => {
+        this.props.fetchTodos();
+    }
+    renderList(): JSX.Element[] {
+        return this.props.todos.map((todos: Todo): JSX.Element => {
+            return <div key={todos.id}>{todos.title}</div>
+        })
+    }
+
+
     render() {
         return (
             <div>
-                Olá APP
+                <button onClick={this.onButtonClick}>FETCH</button>
+                <span>{this.renderList()}</span>
             </div>
         )
     }
