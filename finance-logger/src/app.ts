@@ -1,3 +1,16 @@
+class Invoice {
+    constructor(public client: string, public details: string, public amount: number) { }
+    /**
+     * format
+     */
+    public format(): string {
+        return `${this.client} owes ${this.amount}kz for ${this.details}`
+    }
+}
+const invOne = new Invoice("Francisco Correia", "Work form website", 600000);
+const invoices: Invoice[] = [];
+invoices.push(invOne);
+console.log(invOne, invoices)
 type INPUT = HTMLInputElement;
 const anchor: HTMLAnchorElement = document.querySelector('a')!;
 const type = document.querySelector('#type') as HTMLSelectElement;
@@ -9,5 +22,5 @@ const form = document.querySelector('.new-item-form') as HTMLFormElement;
 
 form.addEventListener('submit', (e: Event) => {
     e.preventDefault();
-    return console.log(`${anchor.text}, ${type.value}, ${tofrom.value}, ${details.value}, ${amount.value}`);
+    return console.log(` ${type.value}, ${tofrom.value}, ${details.value}, ${amount.value}`);
 })
