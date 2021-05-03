@@ -4,7 +4,7 @@ import { Todo, fetchTodos } from '../actions'
 import { StoreState } from '../reducers'
 export interface AppProps {
     todos: Todo[],
-    fetchTodos: any
+    fetchTodos(): any
 }
 class _App extends Component<AppProps> {
     render() {
@@ -20,4 +20,4 @@ const mapStateToProps = ({ todos }: StoreState): { todos: Todo[] } => {
 }
 
 
-export const App = connect(mapStateToProps, fetchTodos)(_App)
+export const App = connect(mapStateToProps, { fetchTodos })(_App)

@@ -15,8 +15,8 @@ export interface FetchTodosAction {
 }
 
 const url = 'https://jsonplaceholder.typecode/todos';
-export const fetchTodos = (dispatch: Dispatch) => {
-    return async () => {
+export const fetchTodos = () => {
+    return async (dispatch: Dispatch) => {
         const response = await axios.get<Todo[]>(url);
 
         dispatch<FetchTodosAction>({
