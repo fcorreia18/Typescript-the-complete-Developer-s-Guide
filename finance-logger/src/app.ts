@@ -1,5 +1,5 @@
 class Invoice {
-    constructor(public client: string, public details: string, public amount: number) { }
+    constructor(readonly client: string, private details: string, public amount: number) { }
     /**
      * format
      */
