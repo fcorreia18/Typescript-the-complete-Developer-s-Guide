@@ -13,7 +13,7 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     let docs;
     let values;
-    values = [tofrom.value, details.value, amount.valueAsNumber]; //AsNumber is a js default function thats tranforms a string into a number.
+    values = [tofrom.value, details.value, parseInt(amount.value)]; //AsNumber is a js default function thats tranforms a string into a number.
     if (type.value == "invoice") {
         docs = new Invoice(...values);
         template.render(docs, type.value, "start");
