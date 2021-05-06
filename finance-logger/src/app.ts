@@ -20,10 +20,10 @@ form.addEventListener('submit', (e: Event) => {
     let docs: HasFormatter;
     if (type.value == "invoice") {
         docs = new Invoice(tofrom.value, details.value, parseInt(amount.value));
-        template.render(docs, type.value, "start")
+        template.render<Invoice>(docs as Invoice, type.value, "start")
     } else {
         docs = new Payment(tofrom.value, details.value, amount.valueAsNumber);
-        template.render(docs, type.value, "end")
+        template.render<Payment>(docs as Payment, type.value, "end")
 
     }
 })

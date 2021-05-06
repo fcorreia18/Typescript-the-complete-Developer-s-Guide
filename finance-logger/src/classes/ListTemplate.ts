@@ -14,7 +14,7 @@ export class ListTemplate {
     /**
      * render
      */
-    public render(type: HasFormatter, heading: string, pos: 'start' | 'end') {
+    public render<T extends HasFormatter>(type: T, heading: string, pos: 'start' | 'end') {
         const li = document.createElement('li');
         const header = document.createElement('h4')
         header.innerHTML = heading;
