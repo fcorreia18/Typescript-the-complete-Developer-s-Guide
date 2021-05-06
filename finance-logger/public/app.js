@@ -12,12 +12,14 @@ const template = new ListTemplate(ul);
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     let docs;
+    let values;
+    values = [tofrom.value, details.value, amount.valueAsNumber]; //AsNumber is a js default function thats tranforms a string into a number.
     if (type.value == "invoice") {
-        docs = new Invoice(tofrom.value, details.value, parseInt(amount.value));
+        docs = new Invoice(...values);
         template.render(docs, type.value, "start");
     }
     else {
-        docs = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+        docs = new Payment(...values);
         template.render(docs, type.value, "end");
     }
 });
