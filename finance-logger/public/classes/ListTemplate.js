@@ -14,12 +14,12 @@ export class ListTemplate {
      */
     render(type, heading, pos) {
         const li = document.createElement('li');
-        const p = document.createElement('p');
-        p.innerHTML = type.format();
-        li.append(p);
         const header = document.createElement('h4');
         header.innerHTML = heading;
         li.append(header);
+        const p = document.createElement('p');
+        p.innerHTML = type.format();
+        li.append(p);
         if (pos === "start") {
             this.container.prepend(li);
         }
