@@ -1,16 +1,19 @@
 *{
     padding:0;
     margin:0
+    
 }
 :root{
-    --primary:rgb(22, 15, 87);
-    --secondary:rgba(11, 50, 95, 0.829);
+    --primary:rgba(11, 50, 95, 0.829);
     --font: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    --font-color:rgb(54, 54, 54);
 }
 
 body{
-    text-align: center;
-    font-family: var(--font);
+    text-align: center !important;
+    color: var(--font-color);
+    /* font-family: var(--font); */
+ 
 }
 
 div .p-name{
@@ -19,26 +22,37 @@ div .p-name{
 }
 
 footer{
-    background-color: rgba(149, 151, 182, 0.363);
-    padding: 100px;
-    margin: 50px;
+    background-color: rgba(149, 151, 182, 0.267);
+    width: 100%;
+    height: 200px;
+    margin-top: 50px;
+    padding-top: 100px;
 }
 
 .new-item-form{
     display: flex;
+    justify-content: center;
     margin: 2px;
 }
+
 .field{
-    display: inline-flex;
-    flex-wrap: wrap;
-    align-content: center
-    ;
+    margin: 0 10px 0 10px;
+    font-size: 0.8rem;
+    display: grid;
+    gap: 2px;
+    
 }
-footer form >button{
-    background-color: var(--secondary);
+
+input[type="text"], select{
+border: none;
+padding:4px;
+border-radius: 2px;
+}
+footer form > button{
+    background-color: var(--primary);
 color:white;
 width: 100px;
-border-radius: 5px;
+border-radius: 4px;
 margin-left: 5px;
 cursor: pointer;
 }
@@ -46,6 +60,18 @@ cursor: pointer;
 margin-top: 100px;
 }
 footer > div > a{
-color: rgb(102, 102, 102);
-text-align: center;
+color: grey;
+font-size: 0.8em;
+}
+
+@media screen and (min-width:300px) {
+    button[type="submit"]{
+        height: 25px;
+        margin-top: 20px;
+    }
+}
+@media screen and (max-width:935px) {
+    button[type="submit"]{
+        margin-top: 18px;
+    }
 }
