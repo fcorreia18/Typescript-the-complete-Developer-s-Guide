@@ -49,9 +49,10 @@ ul{
     width: 90%;
 }
 li{
+    text-align: left;  
     border: 3px solid #0000000d;
     padding: 10px;
-    text-align: left;  
+    margin-top: 10px;
 }
 li>h4{
     color: var(--primary);
